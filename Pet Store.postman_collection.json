@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "349804e5-d406-4d25-9644-c28aaf6ba369",
+		"name": "Pet Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39311588",
+		"_collection_link": "https://www.postman.com/material-geoscientist-29206773/rusov-test-workspace/collection/maqfalm/pet-store?action=share&source=collection_link&creator=39311588"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Get Pet By Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}pet/findByStatus?status=sold,pending",
+							"host": [
+								"{{url2}}pet"
+							],
+							"path": [
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "sold,pending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pet By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}pet/17271501",
+							"host": [
+								"{{url2}}pet"
+							],
+							"path": [
+								"17271501"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Pet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 17271501,\r\n  \"category\": {\r\n    \"id\": 17271501,\r\n    \"name\": \"belka\"\r\n  },\r\n  \"name\": \"Belochka\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 17271501,\r\n      \"name\": \"rizhaja\"\r\n    }\r\n  ],\r\n  \"status\": \"sold\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}pet",
+							"host": [
+								"{{url2}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "additionalMetadata",
+									"value": "image jpeg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Светлана/Desktop/Без названия.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url2}}pet/17271501/uploadImage",
+							"host": [
+								"{{url2}}pet"
+							],
+							"path": [
+								"17271501",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 17271501,\r\n  \"category\": {\r\n    \"id\": 17271501,\r\n    \"name\": \"dinosaur\"\r\n  },\r\n  \"name\": \"KusjKusj\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 17271501,\r\n      \"name\": \"TREX\"\r\n    }\r\n  ],\r\n  \"status\": \"sold\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}pet",
+							"host": [
+								"{{url2}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pet Via Form Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kusj",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "sold",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url2}}pet/17271501",
+							"host": [
+								"{{url2}}pet"
+							],
+							"path": [
+								"17271501"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api-key",
+								"value": "special-key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url2}}pet/17271501",
+							"host": [
+								"{{url2}}pet"
+							],
+							"path": [
+								"17271501"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Pet Inventory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}store/inventory",
+							"host": [
+								"{{url2}}store"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 832,\r\n  \"petId\": 12,\r\n  \"quantity\": 1,\r\n  \"shipDate\": \"2025-01-15T16:21:37.907Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}store/order",
+							"host": [
+								"{{url2}}store"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}store/order/:orderId",
+							"host": [
+								"{{url2}}store"
+							],
+							"path": [
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "832"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}store/order/:orderId",
+							"host": [
+								"{{url2}}store"
+							],
+							"path": [
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "832"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create New User With Array",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 2021,\r\n        \"username\": \"Hermione\",\r\n        \"firstName\": \"Hermione\",\r\n        \"lastName\": \"Potter\",\r\n        \"email\": \"harmionepotter@test.com\",\r\n        \"password\": \"1234\",\r\n        \"phone\": \"+123456etr78\",\r\n        \"userStatus\": 0\r\n    },\r\n    {\r\n        \"id\": 2022,\r\n        \"username\": \"HarryPotter1\",\r\n        \"firstName\": \"Potter1\",\r\n        \"lastName\": \"Potter1\",\r\n        \"email\": \"harrypotter1@test.com\",\r\n        \"password\": \"123\",\r\n        \"phone\": \"+12345678\",\r\n        \"userStatus\": 0\r\n    },\r\n    {\r\n        \"id\": 2023,\r\n        \"username\": \"HarryPotter2\",\r\n        \"firstName\": \"Potter2\",\r\n        \"lastName\": \"Potter2\",\r\n        \"email\": \"harrypotter2@test.com\",\r\n        \"password\": \"123\",\r\n        \"phone\": \"+12345678\",\r\n        \"userStatus\": 0\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}user/createWithArray",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								"createWithArray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User With List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 3031,\r\n        \"username\": \"Hermione2\",\r\n        \"firstName\": \"Hermione2\",\r\n        \"lastName\": \"Potter2\",\r\n        \"email\": \"harmionepotter3@test.com\",\r\n        \"password\": \"12345454\",\r\n        \"phone\": \"+12345654543etr78\",\r\n        \"userStatus\": 0\r\n    },\r\n    {\r\n        \"id\": 3032,\r\n        \"username\": \"HarryPotter7\",\r\n        \"firstName\": \"Potter7\",\r\n        \"lastName\": \"Potter7\",\r\n        \"email\": \"harrypotter7@test.com\",\r\n        \"password\": \"12465465463\",\r\n        \"phone\": \"+12365465445678\",\r\n        \"userStatus\": 0\r\n    },\r\n    {\r\n        \"id\": 3033,\r\n        \"username\": \"HarryPotter5\",\r\n        \"firstName\": \"Potte52\",\r\n        \"lastName\": \"Potter5\",\r\n        \"email\": \"harrypotter5@test.com\",\r\n        \"password\": \"124354354353\",\r\n        \"phone\": \"+123456735435438\",\r\n        \"userStatus\": 0\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}user/createWithList",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								"createWithList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}user/:username",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "HarryPotter3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2026,\r\n        \"username\": \"HarryPotter3\",\r\n        \"firstName\": \"Potter3\",\r\n        \"lastName\": \"Potter3\",\r\n        \"email\": \"harrypotter3@test.com\",\r\n        \"password\": \"12345\",\r\n        \"phone\": \"+12345678666\",\r\n        \"userStatus\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}user",
+							"host": [
+								"{{url2}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2026,\r\n        \"username\": \"HarryPotter3\",\r\n        \"firstName\": \"Potter34\",\r\n        \"lastName\": \"Potter34\",\r\n        \"email\": \"harrypotter34@test.com\",\r\n        \"password\": \"12344444445\",\r\n        \"phone\": \"+123456786444466\",\r\n        \"userStatus\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url2}}user/:username",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "HarryPotter3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}user/login?username=HarryPotter3&password=12345",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "HarryPotter3"
+								},
+								{
+									"key": "password",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}user/logout",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url2}}user/:username",
+							"host": [
+								"{{url2}}user"
+							],
+							"path": [
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "HarryPotter3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
